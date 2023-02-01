@@ -16,9 +16,23 @@ The code divides into:
 The scripts used to process data divide into:
 - ```retrieve_pubmed_data.py``` and ```crawl_citing_papers.py``` which gather PubMed data
 - ```process_disgenet_data.py``` and ```process_pubtator_data.py``` which process DisGeNET and PubTator data
-- ```prepare_data.py``` which prepare data for KB construction
+- ```prepare_data.py``` which prepares data for KB construction
 
 ### Relation Extraction
+
+The scripts used for RE models can be grouped in three categories: training, evaluation, deployment.
+
+Training:
+- ```train_cebert.py``` can be used to train aspect extractors (CGE, CCS, GCI)
+- ```train_cerefiner.py``` can be used to train the sentence utility classifier (GCC)
+
+Evaluation:
+- ```evaluate_cebert.py``` can be used to evaluate aspect extractors (CGE, CCS, GCI)
+- ```evaluate_cerefiner.py``` can be used to evaluate the sentence utility classifier (GCC)
+
+Deployment:
+- ```deploy_cebert.py``` can be used to deploy aspect extractors (CGE, CCS, GCI)
+- ```deploy_cerefiner.py``` can be used to deploy the sentence utility classifier (GCC)
 
 ### Knowledge Base Construction
 
