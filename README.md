@@ -3,7 +3,7 @@ This repository contains the source code of the Collaborative Oriented Relation 
 
 *This work has been submitted to KDD 2023 and is currently under review.*
 
-## Code
+## Code & Scripts
 
 ### Source Code
 
