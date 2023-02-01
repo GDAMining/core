@@ -42,7 +42,7 @@ To build the KB, use the ```build_cecore.py``` script.
 
 ## Knowledge Base
 
-The Gene Expression-Cancer KB derived by CORE is available as Open Data at: https://doi.org/10.5281/zenodo.7577127.  <br />
+The Gene Expression-Cancer KB derived by CORE is available as Open Data on Zenodo: https://doi.org/10.5281/zenodo.7577127.  <br />
 The repository consists of the ```schema.owl``` file, which contains the KB schema, and the ```data.ttl``` file, which contains the KB data.
 
 ## SPARQL End-Point
