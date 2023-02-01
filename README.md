@@ -3,11 +3,16 @@ This repository contains the source code of the Collaborative Oriented Relation 
 
 ## Code
 
+### Source Code
+
+The source code to build the CORE system can be found in ```./src```.
+The code divides into:
+
+
 ### Data Processing
 
 ### Knowledge Base Construction
 
-The source code to build the CORE system can be found in ```./src```
 
 ## Knowledge Base
 
@@ -20,3 +25,5 @@ The SPARQL end-point to query the KB is available at: http://w3id.org/corekb/spa
 This work has been submitted to KDD 2023 and is currently under review.
 
 ## Acks
+The work is supported by the ExaMode project, as part of the EU H2020 program under Grant Agreement no. 825292.
+The development of the CORE system benefited from the valuable contribution of the medical centres and clinicians involved in the ExaMode project. We would like to express our gratitude for their support and feedback, which has been instrumental in the creation of the CORE KB.
