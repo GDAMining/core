@@ -8,7 +8,8 @@ This repository contains the source code of the Collaborative Oriented Relation 
 The source code to build the CORE system can be found in ```./src```.
 The code divides into:
 - ```./src/data```: contains the code required to process data
-- ```./src/models```: contains the code required to 
+- ```./src/models```: contains the code required to build RE models
+- ```./src/core```: contains the code required to build the KB
 
 ### Data Processing
 
