@@ -7,11 +7,18 @@ This repository contains the source code of the Collaborative Oriented Relation 
 
 The source code to build the CORE system can be found in ```./src```.
 The code divides into:
-- ```./src/data```: contains the code required to process data
-- ```./src/models```: contains the code required to build RE models
 - ```./src/core```: contains the code required to build the KB
+- ```./src/data```: contains the code required to process data
+- ```./src/models```: contains the code required to make RE models
 
 ### Data Processing
+
+The scripts used to process data divide into:
+- ```retrieve_pubmed_data.py``` and ```crawl_citing_papers.py``` which gather PubMed data
+- ```process_disgenet_data.py``` and ```process_pubtator_data.py``` which process DisGeNET and PubTator data
+- ```prepare_data.py``` which prepare data for KB construction
+
+### Relation Extraction
 
 ### Knowledge Base Construction
 
