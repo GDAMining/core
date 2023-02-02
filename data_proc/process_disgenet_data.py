@@ -10,8 +10,8 @@ from src.data import utils
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--idir', default='./data/disgenet/raw/', type=str, help='Input directory.')
-parser.add_argument('--odir', default='./data/disgenet/proc/', type=str, help='Output directory.')
+parser.add_argument('--idir', default='./data/disgenet/', type=str, help='Input directory.')
+parser.add_argument('--odir', default='./data/crawled/', type=str, help='Output directory.')
 parser.add_argument('--curated', default=True, type=bool, help='Whether to consider automatic or curated data.')
 
 
