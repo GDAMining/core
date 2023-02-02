@@ -1,5 +1,7 @@
+import sys
 import argparse
 
+sys.path.append('.')
 from src.data import utils as data_utils
 
 
