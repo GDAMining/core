@@ -12,11 +12,11 @@ def main():
 
     # get manual data -- in the future, we might have multiple source of manual data and that explains the [] choice
     print('Loading manual data...')
-    manual = [core_utils.read_manual_data('../cecore/data/manual/proc/CECORE_DATA_MANUAL.csv')]
+    manual = [core_utils.read_manual_data('./data/manual/mdata.csv')]
     print('Manual data loaded!')
 
     # get crawled data -- crawled data comes from different sources and thus requires the use of []
-    crawled_paths = glob('../cecore/data/crawled/proc/*.csv')
+    crawled_paths = glob('./data/crawled/*.csv')
     print('Loading crawled/inferred data...')
     crawled = [core_utils.read_crawled_data(path) for path in crawled_paths]
     print('Crawled/Inferred data loaded!')
@@ -27,7 +27,7 @@ def main():
 
     # store current data (version)
     print('Storing current data...')
-    current.to_csv(out_dir + 'CECORE_DATA.csv', index=False)
+    current.to_csv(out_dir + 'data4kb.csv', index=False)
     print('Current data stored!')
 
 
