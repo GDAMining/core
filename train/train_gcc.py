@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import math
 import torch
@@ -11,6 +12,7 @@ from tqdm import tqdm
 from sklearn.metrics import f1_score, classification_report
 from transformers import BertTokenizer, BertForSequenceClassification, BertConfig, get_linear_schedule_with_warmup
 
+sys.path.append('.')
 from src.models import utils
 
 
