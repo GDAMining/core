@@ -24,7 +24,7 @@ def main():
     # init CORE KG
     kg = cecore.CECORE()
 
-    # iterate over prepared data and build CECORE RDF graph
+    # iterate over prepared data and build CORE RDF graph
     print('Convert data to RDF format...')
     for gene_cancer, gcs in tqdm(data4rdf.items(), total=len(data4rdf)):
         if gcs['hasType'] != 'UNRELIABLE':  # store data because RELIABLE
