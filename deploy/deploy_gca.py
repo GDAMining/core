@@ -1,4 +1,5 @@
 import os
+import sys
 import torch
 import random
 import argparse
@@ -8,6 +9,7 @@ from tqdm import tqdm
 from transformers import pipeline
 from transformers import BertTokenizer, BertForSequenceClassification
 
+sys.path.append('.')
 from src.models import utils
 from src.models.utils import InferenceDataset
 
