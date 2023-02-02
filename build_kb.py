@@ -31,7 +31,7 @@ def main():
             kg.convert_gcs2rdf(gene_cancer, gcs)
     print('Data converted to RDF format!')
 
-    # serialize CE CORE
+    # serialize CORE KG
     kg.serialize('./kb/corekb.ttl')
 
 
