@@ -19,7 +19,7 @@ from src.models import utils
 parser = argparse.ArgumentParser()
 parser.add_argument('--automatic_data', default='./data/disgenet/proc/automatic_data', type=str, help='DisGeNET automatic data to ingest.')
 parser.add_argument('--curated_data', default='./data/disgenet/proc/curated_data', type=str, help='DisGeNET curated data to ingest.')
-parser.add_argument('--manual_data', default='./data/manual/proc/manual_data', type=str, help='CECORE manual data to ingest.')
+parser.add_argument('--manual_data', default='./data/manual/mdata', type=str, help='CECORE manual data to ingest.')
 parser.add_argument('--bert', default='allenai/scibert_scivocab_uncased', type=str, help='BERT pre-trained model.')
 parser.add_argument('--gpu', default=0, type=int, help='Primary GPU.')
 parser.add_argument('--epochs', default=5, type=int, help='Number of max epochs.')
