@@ -6,14 +6,14 @@ from src.core import cecore
 
 
 def main():
-    # create CE CORE dir
-    odir = './db/'
+    # create CORE KG dir
+    odir = './kb/'
     if not os.path.exists(odir):
         os.makedirs(odir)
 
     # get current data
     print('Load current data...')
-    data = utils.read_current_data('./data/current/CECORE_DATA.csv')
+    data = utils.read_current_data('./data/current/data4kb.csv')
     print('Current data loaded!')
 
     # prepare data for RDF processing
@@ -21,7 +21,7 @@ def main():
     data4rdf = utils.prepare_data4rdf(data)
     print('Data prepared for RDF processing!')
 
-    # init CECORE KG
+    # init CORE KG
     kg = cecore.CECORE()
 
     # iterate over prepared data and build CECORE RDF graph
@@ -32,7 +32,7 @@ def main():
     print('Data converted to RDF format!')
 
     # serialize CE CORE
-    kg.serialize('./db/cecore.ttl')
+    kg.serialize('./kb/corekb.ttl')
 
 
 if __name__ == "__main__":
