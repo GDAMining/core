@@ -1,8 +1,11 @@
+import sys
 import argparse
 import pandas as pd
 
 from glob import glob
 from tqdm import tqdm
+
+sys.path.append('.')
 from src.data import utils
 
 
