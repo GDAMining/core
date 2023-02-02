@@ -16,8 +16,8 @@ The code divides into:
 ### Data Processing
 
 The scripts used to process data divide into:
-- ```retrieve_pubmed_data.py``` and ```crawl_citing_papers.py``` which gather PubMed data
-- ```process_disgenet_data.py``` and ```process_pubtator_data.py``` which process DisGeNET and PubTator data
+- ```./proc_data/retrieve_pubmed_data.py``` and ```./proc_data/crawl_citing_papers.py``` which gather PubMed data
+- ```./proc_data/process_disgenet_data.py``` and ```./proc_data/process_pubtator_data.py``` which process DisGeNET and PubTator data
 
 ### Relation Extraction
 
