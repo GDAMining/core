@@ -37,7 +37,7 @@ def read_manual_data(data_path):
 
     data = pd.read_csv(data_path, header=0, keep_default_na=False)
     # rename CGE, CCS, GCI, and GCC and assign the associated scores (set to 1.0)
-    data.rename(columns={'CGE': 'CGE_label', 'CCS': 'CCS_label', 'PT': 'GCI_label', 'CE': 'GCC_label'}, inplace=True)
+    data.rename(columns={'CGE': 'CGE_label', 'CCS': 'CCS_label', 'GCI': 'GCI_label', 'GCC': 'GCC_label'}, inplace=True)
     data['CGE_score'] = 1.0
     data['CCS_score'] = 1.0
     data['GCI_score'] = 1.0
@@ -62,19 +62,19 @@ def read_crawled_data(data_path):
     # get data name
     data_name = data_path.split('/')[-1].split('.')[0]
     # get inferred data associated with crawled data
-    data_cge = pd.read_csv('../cecore/data/inferred/CGE/' + data_name + '_CGE.csv', header=0, keep_default_na=False)
-    data_ccs = pd.read_csv('../cecore/data/inferred/CCS/' + data_name + '_CCS.csv', header=0, keep_default_na=False)
-    data_pt = pd.read_csv('../cecore/data/inferred/PT/' + data_name + '_PT.csv', header=0, keep_default_na=False)
-    data_ce = pd.read_csv('../cecore/data/inferred/CE/' + data_name + '_CE.csv', header=0, keep_default_na=False)
+    data_cge = pd.read_csv('./data/inferred/CGE/' + data_name + '_CGE.csv', header=0, keep_default_na=False)
+    data_ccs = pd.read_csv('./data/inferred/CCS/' + data_name + '_CCS.csv', header=0, keep_default_na=False)
+    data_gci = pd.read_csv('./data/inferred/GCI/' + data_name + '_GCI.csv', header=0, keep_default_na=False)
+    data_gcc = pd.read_csv('./data/inferred/GCC/' + data_name + '_GCC.csv', header=0, keep_default_na=False)
     # concatenate inferred data with crawled data
     data['CGE_label'] = data_cge['CGE_label']
     data['CGE_score'] = data_cge['CGE_score']
     data['CCS_label'] = data_ccs['CCS_label']
     data['CCS_score'] = data_ccs['CCS_score']
-    data['GCI_label'] = data_pt['PT_label']
-    data['GCI_score'] = data_pt['PT_score']
-    data['GCC_label'] = data_ce['CE_label']
-    data['GCC_score'] = data_ce['CE_score']
+    data['GCI_label'] = data_gci['GCI_label']
+    data['GCI_score'] = data_gci['GCI_score']
+    data['GCC_label'] = data_gcc['GCC_label']
+    data['GCC_score'] = data_gcc['GCC_score']
     # replace 'UNKNOWN' w/ 'NOTINF' -- if any
     data = data.replace(to_replace='UNKNOWN', value='NOTINF')
     # assign curated attribute to data and set to False
