@@ -1,6 +1,8 @@
+import sys
 import json
 import argparse
 
+sys.path.append('.')
 from src.core import utils as core_utils
 from src.data import utils as data_utils
 
