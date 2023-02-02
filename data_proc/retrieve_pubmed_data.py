@@ -1,12 +1,14 @@
+import sys
 import argparse
 import pandas as pd
 
+sys.path.append('.')
 from src.data import utils
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--email', default='', type=str, help='Email address, required by NCBI.')
-parser.add_argument('--data', default='./path/to/proc/crawled/data/file', type=str, help='Target data to expand w/ missing PubMed information.')
+parser.add_argument('--data', default='./path/to/crawled/data/file', type=str, help='Target data to expand w/ missing PubMed information.')
 
 args = parser.parse_args()
 
