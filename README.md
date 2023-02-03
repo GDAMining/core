@@ -16,10 +16,10 @@ The code divides into:
 ### Data Processing
 
 The scripts used to process data divide into:
-- ```./proc_data/process_disgenet_data.py```: processes DisGeNET data
-- ```./proc_data/crawl_citing_papers.py```: crawls citing PubMed papers
-- ```./proc_data/retrieve_pubmed_data.py```: retrieves missing PubMed data
-- ```./proc_data/process_pubtator_data.py``` processes PubTator data
+- ```./data_proc/process_disgenet_data.py```: processes DisGeNET data
+- ```./data_proc/crawl_citing_papers.py```: crawls citing PubMed papers
+- ```./data_proc/retrieve_pubmed_data.py```: retrieves missing PubMed data
+- ```./data_proc/process_pubtator_data.py``` processes PubTator data
 
 ### Relation Extraction
 
