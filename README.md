@@ -52,7 +52,7 @@ The ```./sparql/example-queries.txt``` file lists example queries that can be us
 ## COREKB
 
 The COREKB search platform, which can be used to browse the Gene Expression-Cancer KB, is available at: https://gda.dei.unipd.it. <br />
-By clicking on the ``Include unreliable facts'' toggle button, users can also access facts marked as unreliable by CORE.
+By clicking on the ''Include unreliable facts'' toggle button, users can also access facts marked as _unreliable_ by CORE.
 
 ## Acknowledgments
 The work is supported by the [ExaMode project](https://www.examode.eu), as part of the EU H2020 program under Grant Agreement no. 825292.
