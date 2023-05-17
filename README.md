@@ -49,6 +49,11 @@ The repository consists of the ```schema.owl``` file, which contains the KB sche
 The KB can be accessed via a SPARQL end-point, available at: http://w3id.org/corekb/sparql. <br />
 The ```./sparql/example-queries.txt``` file lists example queries that can be used on the KB to compute statistics, explore data, and discover trends. Queries can be copy-pasted into the SPARQL end-point and then executed.
 
+## COREKB
+
+The COREKB search platform, which can be used to browse the Gene Expression-Cancer KB, is available at: https://gda.dei.unipd.it. <br />
+By clicking on the ``Include unreliable facts'' toggle button, users can also access facts marked as unreliable by CORE.
+
 ## Acknowledgments
 The work is supported by the [ExaMode project](https://www.examode.eu), as part of the EU H2020 program under Grant Agreement no. 825292.
 The development of the CORE system benefited from the valuable contribution of the medical centres and clinicians involved in the ExaMode project. We would like to express our gratitude for their support and feedback, which has been instrumental in the creation of the CORE KB.
