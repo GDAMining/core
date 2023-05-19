@@ -1,106 +1,4 @@
--------- Query 1: Count number of genes --------
-
-PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
-
-SELECT (COUNT(DISTINCT ?gene) AS ?geneCount) 
-WHERE
-{
-    ?fact core:expressedBy ?gene.
-}
-
-------------------------------------------------
-
-
--------- Query 2: Count number of cancer diseases --------
-
-PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
-
-SELECT (COUNT(DISTINCT ?cancer) AS ?cancerCount) 
-WHERE
-{
-    ?fact core:involves ?cancer.
-}
-
-----------------------------------------------------------
-
-
--------- Query 3: Count number of facts --------
-
-PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-SELECT (COUNT(DISTINCT ?fact) AS ?factCount) 
-WHERE
-{
-    ?fact rdf:type core:GCS.
-}
-
--------------------------------------------------
-
-
--------- Query 4: Find facts where BRAF gene acts as oncogene --------
-
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
-PREFIX ncbi: <https://www.ncbi.nlm.nih.gov/gene/>
-
-SELECT ?fact ?cancer
-WHERE 
-{
-    ?fact core:expressedBy ncbi:673;
-          core:involves ?cancer;
-          core:hasType "ONCOGENE"^^xsd:string.
-}
-
-----------------------------------------------------------------------
-
-
--------- Query 5: Find facts where genes act as tumor suppressors for breast cancer --------
-
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
-PREFIX umls: <http://linkedlifedata.com/resource/umls/id/>
-
-SELECT ?fact ?gene
-WHERE 
-{
-    ?fact core:involves umls:C0006142;
-          core:expressedBy ?gene;
-          core:hasType "TSG"^^xsd:string.
-}
-
----------------------------------------------------------------------------------------------
-
-
--------- Query 6: Find evidence for the (LINC00667, oncogene, colorectal cancer) fact --------
-
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
-PREFIX ncbi: <https://www.ncbi.nlm.nih.gov/gene/>
-PREFIX umls: <http://linkedlifedata.com/resource/umls/id/>
-
-SELECT ?article ?content ?GeneMention ?DiseaseMention ?CGE ?CCS ?GCI
-WHERE 
-{
-    ?fact core:involves umls:C0009404;
-          core:expressedBy ncbi:339290;
-          core:hasType "ONCOGENE"^^xsd:string;
-          core:supportedBy ?evidence.
-    
-    ?evidence 
-          core:extractedFrom ?article;
-          core:hasContent ?content;
-          core:GSAMention ?GeneMention;
-          core:DSAMention ?DiseaseMention;
-          core:CGELabel ?CGE;
-          core:CCSLabel ?CCS;
-          core:GCILabel ?GCI.
-}
-
-----------------------------------------------------------------------------------------------
-
-
--------- Query 7: Discover the 10 most common oncogenes --------
+-------- Query 1: Discover the 10 most involved oncogenes in cancer diseases --------
 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
@@ -115,3 +13,131 @@ ORDER BY DESC(?numFacts)
 LIMIT 10
 
 ----------------------------------------------------------------
+
+
+-------- Query 2: Discover the 10 most involved biomarkers in cancer diseases --------
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
+SELECT ?gene (COUNT(?fact) AS ?numFacts)
+WHERE
+{
+    ?fact core:expressedBy ?gene;
+          core:hasType "BIOMARKER"^^xsd:string.
+}
+GROUP BY ?gene
+ORDER BY DESC(?numFacts)
+LIMIT 10
+
+
+-------- Query 3: Discover the 10 most involved tumor suppressor genes in cancer diseases --------
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
+SELECT ?gene (COUNT(?fact) AS ?numFacts)
+WHERE
+{
+    ?fact core:expressedBy ?gene;
+          core:hasType "TSG"^^xsd:string.
+}
+GROUP BY ?gene
+ORDER BY DESC(?numFacts)
+LIMIT 10
+
+
+----------------------------------------------------------------
+
+
+-------- Query 4: Discover the 10 most discussed genes in literature --------
+
+PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
+SELECT ?gene (COUNT(DISTINCT ?article) AS ?numArticles)
+WHERE 
+{
+    ?fact core:expressedBy ?gene;
+          core:supportedBy ?evidence.
+    
+    ?evidence core:extractedFrom ?article.
+}
+GROUP BY ?gene
+ORDER BY DESC(?numArticles)
+LIMIT 10
+
+
+----------------------------------------------------------------
+
+
+-------- Query 5: Discover the 10 most discussed cancer diseases in literature --------
+
+PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
+PREFIX umls: <http://linkedlifedata.com/resource/umls/id/>
+
+SELECT ?disease (COUNT(DISTINCT ?article) AS ?numArticles)
+WHERE 
+{
+    ?fact core:involves ?disease;
+          core:supportedBy ?evidence.
+    
+    ?evidence core:extractedFrom ?article.
+    FILTER (?disease NOT IN (umls:C0086692, umls:C0027651, umls:C0006826, umls:C1306459))
+}
+GROUP BY ?disease
+ORDER BY DESC(?numArticles)
+LIMIT 10
+
+
+----------------------------------------------------------------
+
+
+-------- Query 6: Discover the 10 most discussed facts in literature --------
+
+PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
+PREFIX umls: <http://linkedlifedata.com/resource/umls/id/>
+
+SELECT ?disease (COUNT(DISTINCT ?article) AS ?numArticles)
+WHERE 
+{
+    ?fact core:involves ?disease;
+          core:supportedBy ?evidence.
+    
+    ?evidence core:extractedFrom ?article.
+    FILTER (?disease NOT IN (umls:C0086692, umls:C0027651, umls:C0006826, umls:C1306459))
+}
+GROUP BY ?disease
+ORDER BY DESC(?numArticles)
+LIMIT 10
+
+
+----------------------------------------------------------------
+
+
+-------- Query 7: Discover the longest-discussed fact in literature --------
+
+PREFIX core: <http://gda.dei.unipd.it/cecore/ontology/>
+SELECT ?gene ?relation ?disease ?pubDate (COUNT(DISTINCT ?article) AS ?numArticles)
+WHERE
+{
+    ?fact core:expressedBy ?gene;
+          core:hasType ?relation;
+          core:involves ?disease;
+          core:supportedBy ?evidence.
+    
+    ?evidence core:extractedFrom ?article.
+    ?article core:publicationYear ?pubDate.
+        
+    {
+        SELECT ?fact (COUNT(DISTINCT ?pubDate) AS ?numYears)
+        WHERE 
+        {
+            ?fact core:supportedBy ?evidence.
+
+            ?evidence core:extractedFrom ?article.
+            ?article core:publicationYear ?pubDate.
+        }
+        GROUP BY ?fact
+        ORDER BY DESC(?numYears)
+        LIMIT 1 
+    }
+}   
+GROUP BY ?gene ?relation ?disease ?pubDate
+ORDER BY ASC(?pubDate)
