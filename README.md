@@ -44,7 +44,7 @@ To build the KB, first prepare the data with ```prepare_data.py``` and then use 
 The Gene Expression-Cancer KB derived by CORE is available as Open Data on Zenodo: https://doi.org/10.5281/zenodo.7577127.  <br />
 The repository consists of the ```schema.owl``` file, which contains the KB schema, and the ```data.ttl``` file, which contains the KB data.
 
-## SPARQL End-Point
+## SPARQL Endpoint
 
 The KB can be accessed via a SPARQL end-point, available at: http://w3id.org/corekb/sparql. <br />
 The ```./sparql/example-queries.txt``` file lists example queries that can be used on the KB to compute statistics, explore data, and discover trends. Queries can be copy-pasted into the SPARQL end-point and then executed.
