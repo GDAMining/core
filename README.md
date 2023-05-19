@@ -46,8 +46,8 @@ The repository consists of the ```schema.owl``` file, which contains the KB sche
 
 ## SPARQL Endpoint
 
-The KB can be accessed via a SPARQL end-point, available at: http://w3id.org/corekb/sparql. <br />
-The ```./sparql/example-queries.txt``` file lists example queries that can be used on the KB to compute statistics, explore data, and discover trends. Queries can be copy-pasted into the SPARQL end-point and then executed.
+The KB can be accessed via a SPARQL endpoint, available at: http://w3id.org/corekb/sparql. <br />
+The ```./sparql/example-queries.txt``` file lists example queries that can be used on the KB to explore data and discover trends. Queries can be copy-pasted into the SPARQL endpoint and then executed.
 
 ## COREKB
 
